@@ -24,7 +24,7 @@ class LibraryMember {
         void print();
         void checkoutBook(Book b);
         vector<Book> getCheckedoutBooks() const;
-        void returnBook(Book b);
+        void returnBooks();
 
     private:
         string firstName;
@@ -32,6 +32,5 @@ class LibraryMember {
         int memberId;
         vector<Book> checkedOut;
         void setId();
-
 };
 #endif

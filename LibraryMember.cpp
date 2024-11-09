@@ -53,18 +53,15 @@ vector<Book> LibraryMember::getCheckedoutBooks() const {
     return checkedOut;
 }
 
-void LibraryMember::returnBook(Book b){
-    vector<Book>::iterator position = find(checkedOut.begin(), checkedOut.end(), b);
-    if(position != checkedOut.end()){
-        checkedOut.erase(position);
-    }
+void LibraryMember::returnBooks(){
+    checkedOut.clear();
 }
 
 void LibraryMember::print() {
     if(checkedOut.size() < 1){
-        printf("Member ID: %d, \nMember Name: %s %s, \nNo Books checked out!", memberId, firstName.c_str(), lastName.c_str());
+        printf("\nMember ID: %d, \nMember Name: %s %s, \nNo Books checked out!", memberId, firstName.c_str(), lastName.c_str());
     } else {
-        printf("Member ID: %d, \nMember Name: %s %s, \nBooks checked out: \n", memberId, firstName.c_str(), lastName.c_str());
+        printf("\nMember ID: %d, \nMember Name: %s %s, \nNumber of Books checked out: %lu \nBooks checked out: \n", memberId, firstName.c_str(), lastName.c_str(), checkedOut.size());
         for(int i=0; i < checkedOut.size(); i++){
             checkedOut.at(i).print();
             cout << "\n";

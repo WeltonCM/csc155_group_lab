@@ -21,8 +21,8 @@ class Book {
         void setAuthor(string author);
         string getAuthor() const;
 
-        void setId();
-        int getId() const;
+        void setIsbn();
+        int getIsbn() const;
 
         void print();
 
@@ -31,13 +31,13 @@ class Book {
         }
 
         bool operator<(const Book& other) const {
-            return id < other.id;
+            return isbn < other.isbn;
         }
 
     private: 
         string title;
         string author;
-        int id;
+        int isbn;
 };
 
 #endif

@@ -13,13 +13,13 @@ using namespace std;
 Book::Book(){
     title = "";
     author = "";
-    setId();
+    setIsbn();
 }
 
 Book::Book(string t, string a){
     title = t;
     author = a;
-    setId();
+    setIsbn();
 }
 
 void Book::setTitle(string t){
@@ -38,17 +38,17 @@ string Book::getAuthor() const {
     return author;
 }
 
-void Book::setId() {
+void Book::setIsbn() {
     random_device device;
     mt19937 gen(device());
     uniform_int_distribution<> dis(1, 100);
-    id = dis(gen);
+    isbn = dis(gen);
 }
 
-int Book::getId() const {
-    return id;
+int Book::getIsbn() const {
+    return isbn;
 }
 
 void Book::print(){
-    printf("Title: %s \nAuthor: %s", title.c_str(), author.c_str());
+    printf("%s, by %s", title.c_str(), author.c_str());
 }
